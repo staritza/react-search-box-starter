@@ -7,12 +7,8 @@ import ReactDOM from 'react-dom';
 
 class SearchComponent extends React.Component {
   render() {
-    return React.createElement(
-        'div',
-        { 'class': 'search-bar' },
-        React.createElement('input', { type: 'text', placeholder: 'Search..' })
-      );
+    return <div className='search-bar'><input type='text' placeholder='Search'/></div>
   }
 }
 
-ReactDOM.render(React.createElement(SearchComponent, null, null), document.getElementById('root'));
+ReactDOM.render(React.createElement(SearchComponent), document.getElementById('root'));
