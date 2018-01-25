@@ -72,9 +72,26 @@ module.exports = __webpack_require__(1);
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed: SyntaxError: Unexpected token (1:1)\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 | \u001b[39m \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m \u001b[36mclass\u001b[39m\u001b[33m=\u001b[39m\u001b[32m\"topnav\"\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m   | \u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 | \u001b[39m   \u001b[33m<\u001b[39m\u001b[33ma\u001b[39m \u001b[36mclass\u001b[39m\u001b[33m=\u001b[39m\u001b[32m\"active\"\u001b[39m href\u001b[33m=\u001b[39m\u001b[32m\"#home\"\u001b[39m\u001b[33m>\u001b[39m\u001b[33mHome\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33ma\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 3 | \u001b[39m   \u001b[33m<\u001b[39m\u001b[33ma\u001b[39m href\u001b[33m=\u001b[39m\u001b[32m\"#about\"\u001b[39m\u001b[33m>\u001b[39m\u001b[33mAbout\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33ma\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 4 | \u001b[39m   \u001b[33m<\u001b[39m\u001b[33ma\u001b[39m href\u001b[33m=\u001b[39m\u001b[32m\"#contact\"\u001b[39m\u001b[33m>\u001b[39m\u001b[33mContact\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33ma\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n");
+"use strict";
+
+
+document.getElementById('root').innerHTML = "<div class='search-bar'><input type='text' placeholder='Search..'/></div>";
+
+//React.createElement(component, props, ...children)
+
+//class SearchComponent extends React.Component {
+//  render() {
+//    return React.createElement(
+//        'div',
+//        { 'class': 'search-bar' },
+//        React.createElement('input', { type: 'text', placeholder: 'Search..' })
+//      );
+//  }
+//}
+//
+//ReactDOM.render(React.createElement(SearchComponent, null, null), document.getElementById('root'));
 
 /***/ })
 /******/ ]);
