@@ -1,11 +1,12 @@
 import React from 'react';
+import './searchComponent.scss';
 
 class SearchComponent extends React.Component {
   constructor() {
       super();
       this.state = {
         fruits: ["orange", "apple", "watermelon", "apricot", "olives"],
-        filteredFruits: [],
+        filteredFruits: ["orange", "apple", "watermelon", "apricot", "olives"],
       };
   }
 
@@ -18,25 +19,24 @@ class SearchComponent extends React.Component {
       this.setState({filteredFruits: matchingFruits})
   }
 
-  renderFilteredFruits(filter edFruits) {
-    const initialValue = ""
-    const rowsOfFruit = filteredFruits.map(function(currentFruit) {return <p key={currentFruit}>{currentFruit}</p>});
+  renderFilteredFruits(filteredFruits) {
+    const rowsOfFruit = filteredFruits.map(function(currentFruit) {return <div key={currentFruit} className="search__result">{currentFruit}</div>});
     return (<div> {rowsOfFruit} </div>);
   }
 
   render() {
     return (
-    <div>
-        <div>
-        </div>
-         <div className='search-bar'>
+    <div className='search'>
+         <div className='search__bar'>
             <input
                 type='text'
                 placeholder='Search'
                 onChange={this.printFilter.bind(this)}>
             </input>
         </div>
-        {this.renderFilteredFruits(this.state.filteredFruits)}
+        <div className='search-results'>
+            {this.renderFilteredFruits(this.state.filteredFruits)}
+        </div>
     </div>
 
     );
