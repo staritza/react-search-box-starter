@@ -18292,7 +18292,8 @@ var SearchComponent = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (SearchComponent.__proto__ || Object.getPrototypeOf(SearchComponent)).call(this));
 
         _this.state = {
-            fruits: ["orange", "apple", "watermelon", "apricot", "olives"]
+            fruits: ["orange", "apple", "watermelon", "apricot", "olives"],
+            filteredFruits: ["orange"]
         };
         return _this;
     }
@@ -18300,7 +18301,14 @@ var SearchComponent = function (_React$Component) {
     _createClass(SearchComponent, [{
         key: "printFilter",
         value: function printFilter(event) {
-            console.log("wow " + event.target.value + "!!!");
+            var value = event.target.value;
+            var myregex = new RegExp(".*" + value + ".*");
+
+            var matchingFruits = this.state.fruits.filter(function (fruit) {
+                return myregex.test(fruit);
+            });
+
+            this.setState({ filteredFruits: matchingFruits });
         }
     }, {
         key: "render",
@@ -18308,17 +18316,7 @@ var SearchComponent = function (_React$Component) {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 "div",
                 null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    null,
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "p",
-                        null,
-                        " ",
-                        this.state.fruits,
-                        " "
-                    )
-                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     "div",
                     { className: "search-bar" },
@@ -18326,6 +18324,13 @@ var SearchComponent = function (_React$Component) {
                         type: "text",
                         placeholder: "Search",
                         onChange: this.printFilter.bind(this) })
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "p",
+                    null,
+                    " ",
+                    this.state.filteredFruits,
+                    " "
                 )
             );
         }

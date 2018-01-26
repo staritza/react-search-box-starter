@@ -5,11 +5,17 @@ class SearchComponent extends React.Component {
       super();
       this.state = {
         fruits: ["orange", "apple", "watermelon", "apricot", "olives"],
+        filteredFruits: [],
       };
   }
 
   printFilter(event) {
-      console.log("wow " + event.target.value + "!!!")
+      const value = event.target.value;
+      const myregex = new RegExp(".*" + value + ".*");
+
+      const matchingFruits = this.state.fruits.filter(function(fruit) {return myregex.test(fruit)});
+
+      this.setState({filteredFruits: matchingFruits})
   }
 
 
@@ -17,7 +23,6 @@ class SearchComponent extends React.Component {
     return (
     <div>
         <div>
-        <p> {this.state.fruits} </p>
         </div>
          <div className='search-bar'>
             <input
@@ -26,7 +31,7 @@ class SearchComponent extends React.Component {
                 onChange={this.printFilter.bind(this)}>
             </input>
         </div>
-
+        <p> {this.state.filteredFruits} </p>
     </div>
 
     );
