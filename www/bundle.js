@@ -18293,7 +18293,7 @@ var SearchComponent = function (_React$Component) {
 
         _this.state = {
             fruits: ["orange", "apple", "watermelon", "apricot", "olives"],
-            filteredFruits: ["orange"]
+            filteredFruits: []
         };
         return _this;
     }
@@ -18311,6 +18311,25 @@ var SearchComponent = function (_React$Component) {
             this.setState({ filteredFruits: matchingFruits });
         }
     }, {
+        key: "renderFilteredFruits",
+        value: function renderFilteredFruits(filteredFruits) {
+            var initialValue = "";
+            var rowsOfFruit = filteredFruits.map(function (currentFruit) {
+                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "p",
+                    { key: currentFruit },
+                    currentFruit
+                );
+            });
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "div",
+                null,
+                " ",
+                rowsOfFruit,
+                " "
+            );
+        }
+    }, {
         key: "render",
         value: function render() {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -18325,13 +18344,7 @@ var SearchComponent = function (_React$Component) {
                         placeholder: "Search",
                         onChange: this.printFilter.bind(this) })
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "p",
-                    null,
-                    " ",
-                    this.state.filteredFruits,
-                    " "
-                )
+                this.renderFilteredFruits(this.state.filteredFruits)
             );
         }
     }]);

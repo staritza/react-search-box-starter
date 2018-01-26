@@ -18,6 +18,11 @@ class SearchComponent extends React.Component {
       this.setState({filteredFruits: matchingFruits})
   }
 
+  renderFilteredFruits(filter edFruits) {
+    const initialValue = ""
+    const rowsOfFruit = filteredFruits.map(function(currentFruit) {return <p key={currentFruit}>{currentFruit}</p>});
+    return (<div> {rowsOfFruit} </div>);
+  }
 
   render() {
     return (
@@ -31,7 +36,7 @@ class SearchComponent extends React.Component {
                 onChange={this.printFilter.bind(this)}>
             </input>
         </div>
-        <p> {this.state.filteredFruits} </p>
+        {this.renderFilteredFruits(this.state.filteredFruits)}
     </div>
 
     );
