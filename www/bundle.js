@@ -18284,26 +18284,54 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var SearchComponent = function (_React$Component) {
-  _inherits(SearchComponent, _React$Component);
+    _inherits(SearchComponent, _React$Component);
 
-  function SearchComponent() {
-    _classCallCheck(this, SearchComponent);
+    function SearchComponent() {
+        _classCallCheck(this, SearchComponent);
 
-    return _possibleConstructorReturn(this, (SearchComponent.__proto__ || Object.getPrototypeOf(SearchComponent)).apply(this, arguments));
-  }
+        var _this = _possibleConstructorReturn(this, (SearchComponent.__proto__ || Object.getPrototypeOf(SearchComponent)).call(this));
 
-  _createClass(SearchComponent, [{
-    key: 'render',
-    value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        { className: 'search-bar' },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', placeholder: 'Search' })
-      );
+        _this.state = {
+            fruits: ["orange", "apple", "watermelon", "apricot", "olives"]
+        };
+        return _this;
     }
-  }]);
 
-  return SearchComponent;
+    _createClass(SearchComponent, [{
+        key: "printFilter",
+        value: function printFilter(event) {
+            console.log("wow " + event.target.value + "!!!");
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "div",
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "div",
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "p",
+                        null,
+                        " ",
+                        this.state.fruits,
+                        " "
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "div",
+                    { className: "search-bar" },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
+                        type: "text",
+                        placeholder: "Search",
+                        onChange: this.printFilter.bind(this) })
+                )
+            );
+        }
+    }]);
+
+    return SearchComponent;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (SearchComponent);
