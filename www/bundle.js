@@ -18294,21 +18294,20 @@ var SearchComponent = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (SearchComponent.__proto__ || Object.getPrototypeOf(SearchComponent)).call(this));
 
+        var fruits = ["orange", "apple", "watermelon", "apricot", "olives"];
         _this.state = {
-            fruits: ["orange", "apple", "watermelon", "apricot", "olives"],
-            filteredFruits: ["orange", "apple", "watermelon", "apricot", "olives"]
+            fruits: fruits,
+            filteredFruits: fruits
         };
         return _this;
     }
 
     _createClass(SearchComponent, [{
-        key: 'printFilter',
-        value: function printFilter(event) {
-            var value = event.target.value;
-            var myregex = new RegExp(".*" + value + ".*");
-
+        key: 'filterFruits',
+        value: function filterFruits(event) {
+            var myRegex = new RegExp(".*" + event.target.value + ".*");
             var matchingFruits = this.state.fruits.filter(function (fruit) {
-                return myregex.test(fruit);
+                return myRegex.test(fruit);
             });
 
             this.setState({ filteredFruits: matchingFruits });
@@ -18343,7 +18342,7 @@ var SearchComponent = function (_React$Component) {
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
                         type: 'text',
                         placeholder: 'Search',
-                        onChange: this.printFilter.bind(this) })
+                        onChange: this.filterFruits.bind(this) })
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',

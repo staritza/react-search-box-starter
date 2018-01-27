@@ -4,23 +4,22 @@ import './searchComponent.scss';
 class SearchComponent extends React.Component {
   constructor() {
       super();
+      const fruits = ["orange", "apple", "watermelon", "apricot", "olives"];
       this.state = {
-        fruits: ["orange", "apple", "watermelon", "apricot", "olives"],
-        filteredFruits: ["orange", "apple", "watermelon", "apricot", "olives"],
+        fruits,
+        filteredFruits: fruits,
       };
   }
 
-  printFilter(event) {
-      const value = event.target.value;
-      const myregex = new RegExp(".*" + value + ".*");
-
-      const matchingFruits = this.state.fruits.filter(function(fruit) {return myregex.test(fruit)});
+  filterFruits(event) {
+      const myRegex = new RegExp(".*" + event.target.value + ".*");
+      const matchingFruits = this.state.fruits.filter(fruit => myRegex.test(fruit));
 
       this.setState({filteredFruits: matchingFruits})
   }
 
   renderFilteredFruits(filteredFruits) {
-    const rowsOfFruit = filteredFruits.map(function(currentFruit) {return <div key={currentFruit} className="search__result">{currentFruit}</div>});
+    const rowsOfFruit = filteredFruits.map(currentFruit => <div key={currentFruit} className="search__result">{currentFruit}</div>);
     return (<div> {rowsOfFruit} </div>);
   }
 
@@ -31,7 +30,7 @@ class SearchComponent extends React.Component {
             <input
                 type='text'
                 placeholder='Search'
-                onChange={this.printFilter.bind(this)}>
+                onChange={this.filterFruits.bind(this)}>
             </input>
         </div>
         <div className='search-results'>
