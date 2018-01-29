@@ -12,14 +12,14 @@ class SearchComponent extends React.Component {
   }
 
   filterFruits(event) {
-      const myRegex = new RegExp(".*" + event.target.value + ".*");
+      const myRegex = new RegExp('.*' + event.target.value + '.*');
       const matchingFruits = this.state.fruits.filter(fruit => myRegex.test(fruit));
 
       this.setState({filteredFruits: matchingFruits})
   }
 
   renderFilteredFruits(filteredFruits) {
-    const rowsOfFruit = filteredFruits.map(currentFruit => <div key={currentFruit} className="search__result">{currentFruit}</div>);
+    const rowsOfFruit = filteredFruits.map(currentFruit => <div key={currentFruit} className='search__result'>{currentFruit}</div>);
     return (<div> {rowsOfFruit} </div>);
   }
 

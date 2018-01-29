@@ -1,3 +1,22 @@
+#To Start
+Install all required dependencies with
+```
+npm install
+```
+or
+```
+yarn install
+```
+Start the express server
+```
+npm start
+```
+or
+```
+yarn start
+```
+
+
 Currying is the act of turning a function into a new function that takes slightly fewer arguments, achieving a slightly more specific task.
 
 
