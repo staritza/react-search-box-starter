@@ -1,6 +1,12 @@
 import React from 'react';
 import './searchComponent.scss';
 
+const renderFilteredFruits = filteredFruits => {
+  const rowsOfFruit = filteredFruits.map(currentFruit => <div key={currentFruit}
+                                                              className='search__result'>{currentFruit}</div>);
+  return (<div> {rowsOfFruit} </div>);
+};
+
 class SearchComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -10,17 +16,6 @@ class SearchComponent extends React.Component {
       filteredFruits
     };
   }
-
-  filterFruits(event) {
-    this.props.saveSearchQuery(event.target.value);
-  }
-
-  renderFilteredFruits(filteredFruits) {
-    const rowsOfFruit = filteredFruits.map(currentFruit => <div key={currentFruit}
-                                                                className='search__result'>{currentFruit}</div>);
-    return (<div> {rowsOfFruit} </div>);
-  }
-
   render() {
     return (
       <div className='search'>
@@ -28,11 +23,11 @@ class SearchComponent extends React.Component {
           <input
             type='text'
             placeholder='Search'
-            onChange={this.filterFruits.bind(this)}>
+            onChange={(event) => {this.props.saveSearchQuery(event.target.value);}}>
           </input>
         </div>
         <div className='search__results'>
-          {this.renderFilteredFruits(this.props.filteredFruits)}
+          {renderFilteredFruits(this.props.filteredFruits)}
         </div>
       </div>
     );
