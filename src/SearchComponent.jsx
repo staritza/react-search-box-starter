@@ -8,14 +8,6 @@ const renderFilteredFruits = filteredFruits => {
 };
 
 class SearchComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    const {fruits, filteredFruits} = props;
-    this.state = { //this does not subscribe to updates as props is updated
-      fruits,
-      filteredFruits
-    };
-  }
   render() {
     return (
       <div className='search'>
