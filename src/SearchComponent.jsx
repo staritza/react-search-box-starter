@@ -1,11 +1,6 @@
 import React from 'react';
 import './searchComponent.scss';
-
-const renderFilteredFruits = filteredFruits => {
-  const rowsOfFruit = filteredFruits.map(currentFruit => <div key={currentFruit}
-                                                              className='search__result'>{currentFruit}</div>);
-  return (<div> {rowsOfFruit} </div>);
-};
+import ListComponent from "./ListComponent.jsx";
 
 const SearchComponent = ({saveSearchQuery, filteredFruits}) => {
     return (
@@ -18,7 +13,7 @@ const SearchComponent = ({saveSearchQuery, filteredFruits}) => {
           </input>
         </div>
         <div className='search__results'>
-          {renderFilteredFruits(filteredFruits)}
+          <ListComponent items={filteredFruits}/>
         </div>
       </div>
     );
