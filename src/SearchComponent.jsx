@@ -4,20 +4,15 @@ import './searchComponent.scss';
 class SearchComponent extends React.Component {
   constructor(props) {
     super(props);
-    const fruits = props.fruits;
-    this.state = {
+    const {fruits, filteredFruits} = props;
+    this.state = { //this does not subscribe to updates as props is updated
       fruits,
-      filteredFruits: fruits
+      filteredFruits
     };
   }
 
   filterFruits(event) {
-    const query = event.target.value;
-    this.props.saveSearchQuery(query);
-    const myRegex = new RegExp('.*' + query + '.*');
-    const matchingFruits = this.state.fruits.filter(fruit => myRegex.test(fruit));
-
-    this.setState({filteredFruits: matchingFruits})
+    this.props.saveSearchQuery(event.target.value);
   }
 
   renderFilteredFruits(filteredFruits) {
@@ -37,7 +32,7 @@ class SearchComponent extends React.Component {
           </input>
         </div>
         <div className='search__results'>
-          {this.renderFilteredFruits(this.state.filteredFruits)}
+          {this.renderFilteredFruits(this.props.filteredFruits)}
         </div>
       </div>
     );

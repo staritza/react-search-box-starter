@@ -35,3 +35,7 @@ or
 curryedMultiply = (n) => { return (m) => multiply(n, m) }
 curryedMultiply(3)(4)
 ```
+
+
+
+Pose this question at this part of the tutorial included in the commit - What to do when you want to work with data from different parts of state?
