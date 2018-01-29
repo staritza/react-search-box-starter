@@ -3,37 +3,38 @@ import './searchComponent.scss';
 
 class SearchComponent extends React.Component {
   constructor(props) {
-      super(props);
-      const fruits = props.fruits;
-      this.state = {
-        fruits,
-        filteredFruits: fruits
-      };
+    super(props);
+    const fruits = props.fruits;
+    this.state = {
+      fruits,
+      filteredFruits: fruits
+    };
   }
 
   filterFruits(event) {
-      const query = event.target.value;
-      this.props.saveSearchQuery(query);
-      const myRegex = new RegExp('.*' + query + '.*');
-      const matchingFruits = this.state.fruits.filter(fruit => myRegex.test(fruit));
+    const query = event.target.value;
+    this.props.saveSearchQuery(query);
+    const myRegex = new RegExp('.*' + query + '.*');
+    const matchingFruits = this.state.fruits.filter(fruit => myRegex.test(fruit));
 
-      this.setState({filteredFruits: matchingFruits})
+    this.setState({filteredFruits: matchingFruits})
   }
 
   renderFilteredFruits(filteredFruits) {
-    const rowsOfFruit = filteredFruits.map(currentFruit => <div key={currentFruit} className='search__result'>{currentFruit}</div>);
+    const rowsOfFruit = filteredFruits.map(currentFruit => <div key={currentFruit}
+                                                                className='search__result'>{currentFruit}</div>);
     return (<div> {rowsOfFruit} </div>);
   }
 
   render() {
     return (
-    <div className='search'>
-         <div className='search__bar'>
-            <input
-                type='text'
-                placeholder='Search'
-                onChange={this.filterFruits.bind(this)}>
-            </input>
+      <div className='search'>
+        <div className='search__bar'>
+          <input
+            type='text'
+            placeholder='Search'
+            onChange={this.filterFruits.bind(this)}>
+          </input>
         </div>
         <div className='search__results'>
           {this.renderFilteredFruits(this.state.filteredFruits)}

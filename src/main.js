@@ -1,7 +1,7 @@
 import React from 'react';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux'
-import { createStore, reducer } from 'redux'
+import {render} from 'react-dom';
+import {Provider} from 'react-redux'
+import {createStore, reducer} from 'redux'
 
 import SearchContainer from './SearchContainer.js';
 import resultsReducer from './reducers/resultsReducer.js';
@@ -18,8 +18,8 @@ let rootReducer = (state = {results: undefined, query: undefined}, action) => {
 let store = createStore(rootReducer, undefined, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 render(
-    <Provider store={store}>
-        <SearchContainer/>
-    </Provider>,
-    document.getElementById('root')
+  <Provider store={store}>
+    <SearchContainer/>
+  </Provider>,
+  document.getElementById('root')
 );

@@ -1,4 +1,4 @@
-import { types } from '../actions.js';
+import {types} from '../actions.js';
 
 const initialState = "";
 const query = (state = initialState, action) => {
