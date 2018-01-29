@@ -2,9 +2,9 @@ import React from 'react';
 import './searchComponent.scss';
 
 class SearchComponent extends React.Component {
-  constructor() {
-      super();
-      const fruits = ["orange", "apple", "watermelon", "apricot", "olives"];
+  constructor(props) {
+      super(props);
+      const fruits = props.fruits;
       this.state = {
         fruits,
         filteredFruits: fruits,

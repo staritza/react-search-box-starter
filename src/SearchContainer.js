@@ -1,3 +1,11 @@
+import {connect} from 'react-redux';
+
 import SearchComponent from './SearchComponent.jsx';
 
-export default SearchComponent
+const mapStateToProps = state => {
+    return {
+        fruits: state.search
+    }
+};
+
+export default connect(mapStateToProps)(SearchComponent);
