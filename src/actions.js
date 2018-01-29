@@ -1,10 +1,4 @@
-export const types = {
-  SAVE_QUERY: "SAVE_QUERY",
-};
+import Reflux from 'reflux';
 
-export const saveSearchQuery = query => {
-  return {
-    type: types.SAVE_QUERY,
-    query
-  }
-};
+export let SearchQuery = Reflux.createActions(['save']);
+export let Results = Reflux.createActions(['get']);
