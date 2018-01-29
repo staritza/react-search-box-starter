@@ -7,24 +7,21 @@ const renderFilteredFruits = filteredFruits => {
   return (<div> {rowsOfFruit} </div>);
 };
 
-class SearchComponent extends React.Component {
-  render() {
+const SearchComponent = ({saveSearchQuery, filteredFruits}) => {
     return (
       <div className='search'>
         <div className='search__bar'>
           <input
             type='text'
             placeholder='Search'
-            onChange={(event) => {this.props.saveSearchQuery(event.target.value);}}>
+            onChange={(event) => {saveSearchQuery(event.target.value);}}>
           </input>
         </div>
         <div className='search__results'>
-          {renderFilteredFruits(this.props.filteredFruits)}
+          {renderFilteredFruits(filteredFruits)}
         </div>
       </div>
     );
-  }
-
-}
+};
 
 export default SearchComponent;
