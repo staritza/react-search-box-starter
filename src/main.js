@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux'
 import { createStore, reducer } from 'redux'
 
-import SearchComponent from './SearchComponent.jsx';
+import SearchContainer from './SearchContainer.js';
 import searchReducer from './reducer'
 
 
@@ -11,6 +11,6 @@ let store = createStore(searchReducer, undefined, window.__REDUX_DEVTOOLS_EXTENS
 
 render(
     <Provider store={store}>
-        <SearchComponent/>
+        <SearchContainer/>
     </Provider>,
     document.getElementById('root'));
