@@ -4,11 +4,15 @@ import { Provider } from 'react-redux'
 import { createStore, reducer } from 'redux'
 
 import SearchContainer from './SearchContainer.js';
-import searchReducer from './reducer'
+import resultsReducer from './reducers/resultsReducer.js';
+import queryReducer from './reducers/queryReducer.js';
 
 
-let rootReducer = (state = {search: undefined}, action) => {
-  return Object.assign({}, state, {search: searchReducer(state.search, action)})
+let rootReducer = (state = {results: undefined, query: undefined}, action) => {
+  return Object.assign({},
+    state,
+    {results: resultsReducer(state.results, action)},
+    {query: queryReducer(state.query, action)})
 };
 
 let store = createStore(rootReducer, undefined, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

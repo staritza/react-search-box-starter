@@ -7,12 +7,14 @@ class SearchComponent extends React.Component {
       const fruits = props.fruits;
       this.state = {
         fruits,
-        filteredFruits: fruits,
+        filteredFruits: fruits
       };
   }
 
   filterFruits(event) {
-      const myRegex = new RegExp('.*' + event.target.value + '.*');
+      const query = event.target.value;
+      this.props.saveSearchQuery(query);
+      const myRegex = new RegExp('.*' + query + '.*');
       const matchingFruits = this.state.fruits.filter(fruit => myRegex.test(fruit));
 
       this.setState({filteredFruits: matchingFruits})
@@ -33,11 +35,10 @@ class SearchComponent extends React.Component {
                 onChange={this.filterFruits.bind(this)}>
             </input>
         </div>
-        <div className='search-results'>
-            {this.renderFilteredFruits(this.state.filteredFruits)}
+        <div className='search__results'>
+          {this.renderFilteredFruits(this.state.filteredFruits)}
         </div>
-    </div>
-
+      </div>
     );
   }
 
