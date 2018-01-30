@@ -1,26 +1,26 @@
-import {connect} from 'react-redux';
+import React from 'react';
+import Reflux from 'reflux';
 
 import SearchComponent from './SearchComponent.jsx';
-import {saveSearchQuery} from "./actions";
+import QueryStore from './QueryStore.js';
+import ResultsStore from './ResultsStore.js';
+import {SearchQuery} from './actions.js';
 
 const filterResults = (query, results) => {
   const myRegex = new RegExp('.*' + query + '.*');
   return results.filter(result => myRegex.test(result))
 };
 
-const mapStateToProps = state => {
-  return {
-    fruits: state.results,
-    filteredFruits: filterResults(state.query, state.results)
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    saveSearchQuery: query => {
-      dispatch(saveSearchQuery(query));
-    }
+class SearchContainer extends Reflux.Component {
+  constructor(props) {
+    super(props);
+    this.stores = [QueryStore, ResultsStore];
   }
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchComponent);
+  render() {
+    return (<SearchComponent saveSearchQuery={SearchQuery.save}
+                             filteredFruits={filterResults(this.state.query, this.state.results)}/>)
+  }
+}
+
+export default SearchContainer;
