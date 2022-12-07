@@ -13,7 +13,7 @@
   "dependencies": {
     "babel-loader": "^7.1.2",
     "css-loader": "^0.28.9",
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "node-sass": "^4.7.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
